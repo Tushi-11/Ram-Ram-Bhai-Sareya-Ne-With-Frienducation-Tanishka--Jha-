@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        int number=0;
+        int array=0;
+        int n=nums.size();
+        unordered_map<int,int>map;
+        for(int i=0; i<n; i++)
+        {
+            array=array+nums[i];
+            if (array==k){
+                number++;
+            }
+            if(map.find(array-k)!=map.end()){
+                number=number+map[array-k];
+            }
+               map [array]++;
+        }
+        return number;
+        
+
+    }
+};
